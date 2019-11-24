@@ -1,6 +1,8 @@
 import 'isomorphic-fetch'
-import Layout from '../components/Layout'
 import Error from './_error'
+import Layout from '../components/Layout'
+
+import ChannelGrid from '../components/ChannelGrid'
 
 export default class extends React.Component {
 
@@ -8,6 +10,7 @@ export default class extends React.Component {
     try {
       let req = await fetch('https://api.audioboom.com/channels/recommended')
       let { body: channels } = await req.json()
+      
       return { channels, statusCode: 200 }
     } catch(e) {
       res.statusCode = 503
@@ -23,7 +26,16 @@ export default class extends React.Component {
     } 
 
     return <Layout title="Podcast">
-      <p>{channels}</p>
+      <div>
+        <h2>Canales recomendados</h2>
+        <ChannelGrid channels={channels} />
+      </div>
+
+      <style jsx>{`
+        h2 {
+          text-align: center;
+        }  
+      `}</style>
     </Layout>
   }
 }
