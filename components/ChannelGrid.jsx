@@ -1,4 +1,4 @@
-import {Link} from '../dynamic-routes'
+import { Link } from '../dynamic-routes'
 import slug from '../helpers/slug'
 
 export default class ChannelGrid extends React.Component {
@@ -31,9 +31,9 @@ export default class ChannelGrid extends React.Component {
         a.channel {
           display: block;
           margin-bottom: 0.5em;
-          color: #333;
           text-decoration: none;
           transition: .4s;
+          color:#0dbeff;
         }
         a.channel:hover {
           transform: scale(1.1)

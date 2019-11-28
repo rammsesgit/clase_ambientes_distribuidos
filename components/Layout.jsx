@@ -2,6 +2,7 @@ import NProgress from 'nprogress'
 import Router from 'next/router'
 import { Link } from '../dynamic-routes'
 import Head from 'next/head'
+import Header from './Header'
 
 Router.onRouteChangeStart = (url) => {
   NProgress.start()
@@ -19,35 +20,30 @@ export default class Layout extends React.Component {
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta httpEquiv="X-UA-Compatible" content="ie=edge"/>
         <title>{title}</title>
+        
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto&display=swap" rel="stylesheet" />
       </Head>
 
-      <header>
-        <Link href="/">
-          <a>Green Podcasts</a>
-        </Link>
-      </header>
+      <Header />
       
       { children }
       
       <style jsx>{`
-        header {
-          color: #fff;
-          background: #6B8B48;
-          padding: 15px;
-          text-align: center;
-        }
-
-        header a {
-          color: #fff;
-          text-decoration: none;
-        }
       `}</style>
 
       <style jsx global>{`
         body {
           margin: 0;
-          font-family: system-ui;
+          font-family: 'Roboto', sans-serif;
           background: white;
+          background: #181818;
+          color:#0dbeff;
+        }
+        .container {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          flex-wrap: wrap;
         }
 
         /* Make clicks pass-through */

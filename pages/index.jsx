@@ -25,11 +25,8 @@ export default class extends React.Component {
       return <Error statusCode={statusCode}/>
     } 
 
-    return <Layout title="Podcast">
-      <div>
-        <h2>Canales recomendados</h2>
-        <ChannelGrid channels={channels} />
-      </div>
+    return <Layout title="TECast">
+      <ChannelGrid channels={channels} />
 
       <style jsx>{`
         h2 {
