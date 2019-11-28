@@ -7,7 +7,8 @@
     "dev": "node src/index.js",
     "devmon": "nodemon src/index.js",
     "build": "next build src/",
-    "start": "NODE_ENV=production node src/index.js"
+    "start": "NODE_ENV=production node src/index.js",
+    "server": "node src/helpers/server.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "isomorphic-fetch": "^2.2.1",
     "next": "^9.1.4",
     "next-routes": "^1.4.2",
+    "nodemailer": "^6.3.1",
     "nprogress": "^0.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
