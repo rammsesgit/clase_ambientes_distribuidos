@@ -3,16 +3,21 @@ const nodemailer = require('nodemailer');
 let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'urielstarkiller011@gmail.com',
-        pass: 'Ramsesselacome'
+        user: 'greenpodcastru@gmail.com',
+        pass: 'Green420RU'
     }
 });
 
 let mailOption = {
-    from: 'urielstarkiller011@gmail.com',
-    to: 'urielchivas11@hotmail.com',
-    subject: 'Testing',
-    text: 'IT WORKS'
+    from: 'greenpodcastru.com',
+    to: 'rammses_@live.com.mx',
+    subject: 'Te has suscrito correctamente.',
+    html:`
+        <h1> Bienvenido a green podcast<h1>
+        <br>
+        <h2>Escucha esto esto!!!</h2>
+        <a href="https://ambientes-distribuidos.herokuapp.com/" target="_blank"></a> 
+    `
 };
 
 
