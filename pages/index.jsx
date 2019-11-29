@@ -29,9 +29,7 @@ export default class extends React.Component {
       <ChannelGrid channels={channels} />
 
       <style jsx>{`
-        h2 {
-          text-align: center;
-        }  
+  
       `}</style>
     </Layout>
   }

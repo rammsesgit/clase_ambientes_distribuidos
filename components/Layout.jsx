@@ -13,7 +13,6 @@ Router.onRouteChangeError = () => NProgress.done()
 export default class Layout extends React.Component {
   render() {
     const { children, title } = this.props
-
     return <div>
       <Head>
         <meta charSet="UTF-8"/>
@@ -24,7 +23,7 @@ export default class Layout extends React.Component {
         <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto&display=swap" rel="stylesheet" />
       </Head>
 
-      <Header />
+      <Header/>
       
       { children }
       

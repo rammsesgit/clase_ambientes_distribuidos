@@ -1,14 +1,25 @@
-export default class Header extends React.Component {
-  render() {
-    return <div className="header container">
+import { Link } from '../dynamic-routes'
 
-      <h1 className="title">TECast</h1>
-      <p className="slogan">El lugar dónde encontrarás todo lo relacionado a la vida como universitario.</p>
+export default class Header extends React.Component {
+  componentDidMount = () => {
+    if (window.location.pathname != "/") {
+      header.classList.add('header-slim')
+    }
+  }
+
+  render() {
+    return <div id="header" className="header container">
+
+      <Link href="/">
+        <h1 className="title">TECast</h1>
+      </Link>
+
+      <h2 className="slogan">El lugar dónde encontrarás todo lo relacionado a la vida como universitario.</h2>
       
       <style jsx>{`
         .header {
           width: 100vw;
-          height: 400px;
+          height: 350px;
           background: linear-gradient(to bottom, rgba(24,24,24,0.25), #181818), url(https://blog.codepen.io/wp-content/themes/codepen/images/radio-hero-bg.jpg);
           background-repeat: no-repeat;
           background-size: cover;
@@ -16,15 +27,20 @@ export default class Header extends React.Component {
           flex-direction: column;
           color: #fff;
         }
+        .header-slim {
+          flex-direction: row;
+          height: max-content;
+        }
 
         .title {
           font-size: 4rem;
           font-family: 'Permanent Marker', cursive;
-          margin-bottom: 0;
+          margin: 0;
+          cursor: pointer;
         }
         .slogan {
-          margin-top: 0;
           font-size: 1.7rem;
+          font-weight: inherit;
           width: 600px;
           text-align: center;
         }
