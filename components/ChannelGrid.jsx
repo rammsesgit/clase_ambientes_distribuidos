@@ -3,56 +3,57 @@ import slug from '../helpers/slug'
 
 export default class ChannelGrid extends React.Component {
   render() {
-    const {channels} = this.props
+    const { channels } = this.props
 
-    return <div className="channels">
-      { 
-        channels.map((channel) => (
-          <Link route="channel" params={{
-            slug: slug(channel.title),
-            id: channel.id
-          }} key={ channel.id }>
-            <a className="channel">
-              <img src={ channel.urls.logo_image.original } alt=""/>
-              <h2>{ channel.title }</h2>
+    return (
+      <div className='channels'>
+        {channels.map(channel => (
+          <Link
+            route='channel'
+            params={{ slug: slug(channel.title), id: channel.id }}
+            key={channel.id}
+          >
+            <a className='channel'>
+              <img src={channel.urls.logo_image.original} alt='' />
+              <h2>{channel.title}</h2>
             </a>
           </Link>
-        )) 
-      }
+        ))}
 
-      <style jsx>{`
-        .channels {
-          display: grid;
-          grid-gap: 15px;
-          padding: 15px;
-          grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-        }
+        <style jsx>{`
+          .channels {
+            display: grid;
+            grid-gap: 15px;
+            padding: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+          }
 
-        a.channel {
-          display: block;
-          margin-bottom: 0.5em;
-          text-decoration: none;
-          transition: .4s;
-          color:#0dbeff;
-        }
-        a.channel:hover {
-          transform: scale(1.1)
-        }
+          a.channel {
+            display: block;
+            margin-bottom: 0.5em;
+            text-decoration: none;
+            transition: 0.4s;
+            color: #0dbeff;
+          }
+          a.channel:hover {
+            transform: scale(1.1);
+          }
 
-        .channel img {
-          border-radius: 3px;
-          box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
-          width: 100%;
-        }
+          .channel img {
+            border-radius: 3px;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+            width: 100%;
+          }
 
-        h2 {
-          padding: 5px;
-          font-size: 0.9em;
-          font-weight: 600;
-          margin: 0;
-          text-align: center;
-        }
-      `}</style>
-    </div>
+          h2 {
+            padding: 5px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin: 0;
+            text-align: center;
+          }
+        `}</style>
+      </div>
+    )
   }
 }
