@@ -22,7 +22,7 @@
   "homepage": "https://github.com/rammsesgit/clase_ambientes_distribuidos#readme",
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "next": "^9.1.4",
+    "next": "^9.3.2",
     "next-images": "^1.2.0",
     "next-routes": "^1.4.2",
     "nodemailer": "^6.3.1",
