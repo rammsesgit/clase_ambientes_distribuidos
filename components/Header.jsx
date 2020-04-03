@@ -13,7 +13,7 @@ export default class Header extends React.Component {
         <Link href='/'>
           <>
             <h1 className='title'>TECast</h1>
-            <small>test</small>
+            <small>test en rama test</small>
           </>
         </Link>
 
