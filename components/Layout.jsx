@@ -4,7 +4,7 @@ import { Link } from '../dynamic-routes'
 import Head from 'next/head'
 import Header from './Header'
 
-Router.onRouteChangeStart = (url) => {
+Router.onRouteChangeStart = url => {
   NProgress.start()
 }
 Router.onRouteChangeComplete = () => NProgress.done()
@@ -13,113 +13,122 @@ Router.onRouteChangeError = () => NProgress.done()
 export default class Layout extends React.Component {
   render() {
     const { children, title } = this.props
-    return <div>
-      <Head>
-        <meta charSet="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta httpEquiv="X-UA-Compatible" content="ie=edge"/>
-        <title>{title}</title>
-        
-        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto&display=swap" rel="stylesheet" />
-      </Head>
+    return (
+      <div>
+        <Head>
+          <meta charSet='UTF-8' />
+          <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+          <meta httpEquiv='X-UA-Compatible' content='ie=edge' />
+          <title>{title}</title>
 
-      <Header/>
-      
-      { children }
-      
-      <style jsx>{`
-      `}</style>
+          <link
+            href='https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto&display=swap'
+            rel='stylesheet'
+          />
+        </Head>
 
-      <style jsx global>{`
-        body {
-          margin: 0;
-          font-family: 'Roboto', sans-serif;
-          background: white;
-          background: #181818;
-          color:#0dbeff;
-        }
-        .container {
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          flex-wrap: wrap;
-        }
+        <Header />
 
-        /* Make clicks pass-through */
-        #nprogress {
-          pointer-events: none;
-        }
+        {children}
 
-        #nprogress .bar {
-          background: #29d;
+        <style jsx global>{`
+          body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: white;
+            background: #181818;
+            color: #0dbeff;
+          }
+          .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+          }
 
-          position: fixed;
-          z-index: 1031;
-          top: 0;
-          left: 0;
+          /* Make clicks pass-through */
+          #nprogress {
+            pointer-events: none;
+          }
 
-          width: 100%;
-          height: 2px;
-        }
+          #nprogress .bar {
+            background: #29d;
 
-        /* Fancy blur effect */
-        #nprogress .peg {
-          display: block;
-          position: absolute;
-          right: 0px;
-          width: 100px;
-          height: 100%;
-          box-shadow: 0 0 10px #29d, 0 0 5px #29d;
-          opacity: 1.0;
+            position: fixed;
+            z-index: 1031;
+            top: 0;
+            left: 0;
 
-          -webkit-transform: rotate(3deg) translate(0px, -4px);
-              -ms-transform: rotate(3deg) translate(0px, -4px);
-                  transform: rotate(3deg) translate(0px, -4px);
-        }
+            width: 100%;
+            height: 2px;
+          }
 
-        /* Remove these to get rid of the spinner */
-        #nprogress .spinner {
-          display: block;
-          position: fixed;
-          z-index: 1031;
-          top: 15px;
-          right: 15px;
-        }
+          /* Fancy blur effect */
+          #nprogress .peg {
+            display: block;
+            position: absolute;
+            right: 0px;
+            width: 100px;
+            height: 100%;
+            box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+            opacity: 1;
 
-        #nprogress .spinner-icon {
-          width: 18px;
-          height: 18px;
-          box-sizing: border-box;
+            -webkit-transform: rotate(3deg) translate(0px, -4px);
+            -ms-transform: rotate(3deg) translate(0px, -4px);
+            transform: rotate(3deg) translate(0px, -4px);
+          }
 
-          border: solid 2px transparent;
-          border-top-color: #29d;
-          border-left-color: #29d;
-          border-radius: 50%;
+          /* Remove these to get rid of the spinner */
+          #nprogress .spinner {
+            display: block;
+            position: fixed;
+            z-index: 1031;
+            top: 15px;
+            right: 15px;
+          }
 
-          -webkit-animation: nprogress-spinner 400ms linear infinite;
-                  animation: nprogress-spinner 400ms linear infinite;
-        }
+          #nprogress .spinner-icon {
+            width: 18px;
+            height: 18px;
+            box-sizing: border-box;
 
-        .nprogress-custom-parent {
-          overflow: hidden;
-          position: relative;
-        }
+            border: solid 2px transparent;
+            border-top-color: #29d;
+            border-left-color: #29d;
+            border-radius: 50%;
 
-        .nprogress-custom-parent #nprogress .spinner,
-        .nprogress-custom-parent #nprogress .bar {
-          position: absolute;
-        }
+            -webkit-animation: nprogress-spinner 400ms linear infinite;
+            animation: nprogress-spinner 400ms linear infinite;
+          }
 
-        @-webkit-keyframes nprogress-spinner {
-          0%   { -webkit-transform: rotate(0deg); }
-          100% { -webkit-transform: rotate(360deg); }
-        }
-        @keyframes nprogress-spinner {
-          0%   { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-      `}</style>
+          .nprogress-custom-parent {
+            overflow: hidden;
+            position: relative;
+          }
 
-    </div>
+          .nprogress-custom-parent #nprogress .spinner,
+          .nprogress-custom-parent #nprogress .bar {
+            position: absolute;
+          }
+
+          @-webkit-keyframes nprogress-spinner {
+            0% {
+              -webkit-transform: rotate(0deg);
+            }
+            100% {
+              -webkit-transform: rotate(360deg);
+            }
+          }
+          @keyframes nprogress-spinner {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+        `}</style>
+      </div>
+    )
   }
 }
