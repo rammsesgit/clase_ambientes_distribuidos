@@ -20,7 +20,7 @@ let mailOption = {
     `
 }
 
-transporter.sendMail(mailOption, function(err, data) {
+transporter.sendMail(mailOption, function (err, data) {
   if (err) {
     console.log('Error')
   } else {
