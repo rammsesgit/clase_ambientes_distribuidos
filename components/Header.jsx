@@ -11,14 +11,7 @@ export default class Header extends React.Component {
     return (
       <div id='header' className='header container'>
         <Link href='/'>
-<<<<<<< Updated upstream
-          <>
-            <h1 className='title'>TECast</h1>
-            <small>test</small>
-          </>
-=======
           <h1 className='title'>TECast</h1>
->>>>>>> Stashed changes
         </Link>
 
         <h2 className='slogan'>
