@@ -11,10 +11,7 @@ export default class Header extends React.Component {
     return (
       <div id='header' className='header container'>
         <Link href='/'>
-          <>
-            <h1 className='title'>TECast</h1>
-            <small>test en rama master</small>
-          </>
+          <h1 className='title'>TECast</h1>
         </Link>
 
         <h2 className='slogan'>
